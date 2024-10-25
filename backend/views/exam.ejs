@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exam Announcement: <%= name %></title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      h1 {
+        color: #2c3e50;
+      }
+      .important {
+        color: #e74c3c;
+        font-weight: bold;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+      }
+      th {
+        background-color: #f2f2f2;
+      }
+    </style>
+  </head>
+  <body>
+     <h1>Exam Announcement: <%= name %></h1>
+    <p>Dear Students,</p>
+    <p>
+      This is to inform you that the <%= name %> will be held as per the
+      following schedule:
+    </p>
+
+    <table>
+      <tr>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Subject</th>
+        <th>Venue</th>
+      </tr>
+      <% examSchedule.forEach(function(exam) { %>
+      <tr>
+        <td><%= exam.date %></td>
+        <td><%= exam.time %></td>
+        <td><%= exam.subject %></td>
+        <td><%= exam.venue %></td>
+      </tr>
+      <% }); %>
+    </table>
+
+    <h2>Important Instructions:</h2>
+    <ul>
+      <% instructions.forEach(function(instruction) { %>
+      <li><%= instruction %></li>
+      <% }); %>
+    </ul>
+
+    <p class="important">
+      Note: Please ensure you bring your student ID and required stationery.
+    </p>
+
+    <p>
+      If you have any questions or concerns, please contact the examination
+      office.
+    </p>
+
+    <p>Best of luck with your exams!</p>
+
+    <footer>
+      <p>Regards,<br /><%= signatory %></p>
+    </footer>
+  </body>
+</html>
